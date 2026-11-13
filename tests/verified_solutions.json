@@ -1,0 +1,569 @@
+[
+	{
+		"id": "chapter_01_level_01",
+		"par": 1,
+		"solution": [
+			"p1"
+		],
+		"states": 2
+	},
+	{
+		"id": "chapter_01_level_02",
+		"par": 1,
+		"solution": [
+			"p1"
+		],
+		"states": 2
+	},
+	{
+		"id": "chapter_01_level_03",
+		"par": 1,
+		"solution": [
+			"p1"
+		],
+		"states": 2
+	},
+	{
+		"id": "chapter_01_level_04",
+		"par": 1,
+		"solution": [
+			"p1"
+		],
+		"states": 2
+	},
+	{
+		"id": "chapter_01_level_05",
+		"par": 1,
+		"solution": [
+			"p1"
+		],
+		"states": 2
+	},
+	{
+		"id": "chapter_01_level_06",
+		"par": 1,
+		"solution": [
+			"p1"
+		],
+		"states": 2
+	},
+	{
+		"id": "chapter_01_level_07",
+		"par": 1,
+		"solution": [
+			"p1"
+		],
+		"states": 2
+	},
+	{
+		"id": "chapter_01_level_08",
+		"par": 1,
+		"solution": [
+			"p1"
+		],
+		"states": 2
+	},
+	{
+		"id": "chapter_01_level_09",
+		"par": 1,
+		"solution": [
+			"p1"
+		],
+		"states": 2
+	},
+	{
+		"id": "chapter_01_level_10",
+		"par": 1,
+		"solution": [
+			"p1"
+		],
+		"states": 2
+	},
+	{
+		"id": "chapter_02_level_01",
+		"par": 2,
+		"solution": [
+			"p1",
+			"p2"
+		],
+		"states": 4
+	},
+	{
+		"id": "chapter_02_level_02",
+		"par": 1,
+		"solution": [
+			"p1"
+		],
+		"states": 2
+	},
+	{
+		"id": "chapter_02_level_03",
+		"par": 2,
+		"solution": [
+			"p1",
+			"p2"
+		],
+		"states": 4
+	},
+	{
+		"id": "chapter_02_level_04",
+		"par": 2,
+		"solution": [
+			"p1",
+			"p2"
+		],
+		"states": 4
+	},
+	{
+		"id": "chapter_02_level_05",
+		"par": 1,
+		"solution": [
+			"p1"
+		],
+		"states": 2
+	},
+	{
+		"id": "chapter_02_level_06",
+		"par": 2,
+		"solution": [
+			"p1",
+			"p2"
+		],
+		"states": 4
+	},
+	{
+		"id": "chapter_02_level_07",
+		"par": 2,
+		"solution": [
+			"p1",
+			"p2"
+		],
+		"states": 4
+	},
+	{
+		"id": "chapter_02_level_08",
+		"par": 1,
+		"solution": [
+			"p1"
+		],
+		"states": 2
+	},
+	{
+		"id": "chapter_02_level_09",
+		"par": 2,
+		"solution": [
+			"p1",
+			"p2"
+		],
+		"states": 4
+	},
+	{
+		"id": "chapter_02_level_10",
+		"par": 2,
+		"solution": [
+			"p1",
+			"p2"
+		],
+		"states": 4
+	},
+	{
+		"id": "chapter_03_level_01",
+		"par": 3,
+		"solution": [
+			"p1",
+			"p2",
+			"p3"
+		],
+		"states": 8
+	},
+	{
+		"id": "chapter_03_level_02",
+		"par": 2,
+		"solution": [
+			"p1",
+			"p2"
+		],
+		"states": 5
+	},
+	{
+		"id": "chapter_03_level_03",
+		"par": 3,
+		"solution": [
+			"p1",
+			"p2",
+			"p3"
+		],
+		"states": 8
+	},
+	{
+		"id": "chapter_03_level_04",
+		"par": 3,
+		"solution": [
+			"p1",
+			"p2",
+			"p3"
+		],
+		"states": 8
+	},
+	{
+		"id": "chapter_03_level_05",
+		"par": 2,
+		"solution": [
+			"p1",
+			"p2"
+		],
+		"states": 5
+	},
+	{
+		"id": "chapter_03_level_06",
+		"par": 3,
+		"solution": [
+			"p1",
+			"p2",
+			"p3"
+		],
+		"states": 8
+	},
+	{
+		"id": "chapter_03_level_07",
+		"par": 3,
+		"solution": [
+			"p1",
+			"p2",
+			"p3"
+		],
+		"states": 8
+	},
+	{
+		"id": "chapter_03_level_08",
+		"par": 2,
+		"solution": [
+			"p1",
+			"p2"
+		],
+		"states": 5
+	},
+	{
+		"id": "chapter_03_level_09",
+		"par": 3,
+		"solution": [
+			"p1",
+			"p2",
+			"p3"
+		],
+		"states": 8
+	},
+	{
+		"id": "chapter_03_level_10",
+		"par": 3,
+		"solution": [
+			"p1",
+			"p2",
+			"p3"
+		],
+		"states": 8
+	},
+	{
+		"id": "chapter_04_level_01",
+		"par": 2,
+		"solution": [
+			"a1",
+			"b1"
+		],
+		"states": 4
+	},
+	{
+		"id": "chapter_04_level_02",
+		"par": 1,
+		"solution": [
+			"a1"
+		],
+		"states": 2
+	},
+	{
+		"id": "chapter_04_level_03",
+		"par": 2,
+		"solution": [
+			"a1",
+			"b1"
+		],
+		"states": 4
+	},
+	{
+		"id": "chapter_04_level_04",
+		"par": 2,
+		"solution": [
+			"a1",
+			"b1"
+		],
+		"states": 4
+	},
+	{
+		"id": "chapter_04_level_05",
+		"par": 2,
+		"solution": [
+			"a1",
+			"a2"
+		],
+		"states": 5
+	},
+	{
+		"id": "chapter_04_level_06",
+		"par": 2,
+		"solution": [
+			"a1",
+			"b1"
+		],
+		"states": 4
+	},
+	{
+		"id": "chapter_04_level_07",
+		"par": 2,
+		"solution": [
+			"a1",
+			"b1"
+		],
+		"states": 4
+	},
+	{
+		"id": "chapter_04_level_08",
+		"par": 1,
+		"solution": [
+			"a1"
+		],
+		"states": 2
+	},
+	{
+		"id": "chapter_04_level_09",
+		"par": 2,
+		"solution": [
+			"a1",
+			"b1"
+		],
+		"states": 4
+	},
+	{
+		"id": "chapter_04_level_10",
+		"par": 3,
+		"solution": [
+			"a1",
+			"a2",
+			"b1"
+		],
+		"states": 8
+	},
+	{
+		"id": "chapter_05_level_01",
+		"par": 3,
+		"solution": [
+			"s4",
+			"s7",
+			"s2"
+		],
+		"states": 8
+	},
+	{
+		"id": "chapter_05_level_02",
+		"par": 2,
+		"solution": [
+			"s4",
+			"s7"
+		],
+		"states": 5
+	},
+	{
+		"id": "chapter_05_level_03",
+		"par": 3,
+		"solution": [
+			"s4",
+			"s7",
+			"s2"
+		],
+		"states": 8
+	},
+	{
+		"id": "chapter_05_level_04",
+		"par": 3,
+		"solution": [
+			"s4",
+			"s7",
+			"s2"
+		],
+		"states": 8
+	},
+	{
+		"id": "chapter_05_level_05",
+		"par": 2,
+		"solution": [
+			"s4",
+			"s7"
+		],
+		"states": 5
+	},
+	{
+		"id": "chapter_05_level_06",
+		"par": 3,
+		"solution": [
+			"s4",
+			"s7",
+			"s2"
+		],
+		"states": 8
+	},
+	{
+		"id": "chapter_05_level_07",
+		"par": 3,
+		"solution": [
+			"s4",
+			"s7",
+			"s2"
+		],
+		"states": 8
+	},
+	{
+		"id": "chapter_05_level_08",
+		"par": 2,
+		"solution": [
+			"s4",
+			"s7"
+		],
+		"states": 5
+	},
+	{
+		"id": "chapter_05_level_09",
+		"par": 3,
+		"solution": [
+			"s4",
+			"s7",
+			"s2"
+		],
+		"states": 8
+	},
+	{
+		"id": "chapter_05_level_10",
+		"par": 3,
+		"solution": [
+			"s4",
+			"s7",
+			"s2"
+		],
+		"states": 8
+	},
+	{
+		"id": "chapter_06_level_01",
+		"par": 5,
+		"solution": [
+			"s4",
+			"s7",
+			"s2",
+			"final1",
+			"final2"
+		],
+		"states": 32
+	},
+	{
+		"id": "chapter_06_level_02",
+		"par": 4,
+		"solution": [
+			"s4",
+			"s7",
+			"s2",
+			"final1"
+		],
+		"states": 27
+	},
+	{
+		"id": "chapter_06_level_03",
+		"par": 5,
+		"solution": [
+			"s4",
+			"s7",
+			"s2",
+			"final1",
+			"final2"
+		],
+		"states": 32
+	},
+	{
+		"id": "chapter_06_level_04",
+		"par": 5,
+		"solution": [
+			"s4",
+			"s7",
+			"s2",
+			"final1",
+			"final2"
+		],
+		"states": 32
+	},
+	{
+		"id": "chapter_06_level_05",
+		"par": 4,
+		"solution": [
+			"s4",
+			"s7",
+			"s2",
+			"final1"
+		],
+		"states": 27
+	},
+	{
+		"id": "chapter_06_level_06",
+		"par": 5,
+		"solution": [
+			"s4",
+			"s7",
+			"s2",
+			"final1",
+			"final2"
+		],
+		"states": 32
+	},
+	{
+		"id": "chapter_06_level_07",
+		"par": 5,
+		"solution": [
+			"s4",
+			"s7",
+			"s2",
+			"final1",
+			"final2"
+		],
+		"states": 32
+	},
+	{
+		"id": "chapter_06_level_08",
+		"par": 4,
+		"solution": [
+			"s4",
+			"s7",
+			"s2",
+			"final1"
+		],
+		"states": 27
+	},
+	{
+		"id": "chapter_06_level_09",
+		"par": 5,
+		"solution": [
+			"s4",
+			"s7",
+			"s2",
+			"final1",
+			"final2"
+		],
+		"states": 32
+	},
+	{
+		"id": "chapter_06_level_10",
+		"par": 5,
+		"solution": [
+			"s4",
+			"s7",
+			"s2",
+			"final1",
+			"final2"
+		],
+		"states": 32
+	}
+]

@@ -1,0 +1,140 @@
+{
+	"cells": [
+		{
+			"dir": 0,
+			"type": "empty"
+		},
+		{
+			"dir": 0,
+			"type": "empty"
+		},
+		{
+			"dir": 2,
+			"type": "emitter"
+		},
+		{
+			"dir": 0,
+			"type": "empty"
+		},
+		{
+			"dir": 0,
+			"type": "empty"
+		},
+		{
+			"dir": 0,
+			"type": "empty"
+		},
+		{
+			"dir": 0,
+			"type": "empty"
+		},
+		{
+			"dir": 3,
+			"type": "splitter"
+		},
+		{
+			"dir": 0,
+			"type": "empty"
+		},
+		{
+			"dir": 0,
+			"type": "mirror"
+		},
+		{
+			"dir": 0,
+			"type": "empty"
+		},
+		{
+			"dir": 0,
+			"type": "empty"
+		},
+		{
+			"dir": 0,
+			"type": "empty"
+		},
+		{
+			"dir": 0,
+			"type": "empty"
+		},
+		{
+			"dir": 0,
+			"type": "empty"
+		},
+		{
+			"dir": 0,
+			"type": "empty"
+		},
+		{
+			"dir": 0,
+			"type": "empty"
+		},
+		{
+			"dir": 0,
+			"type": "empty"
+		},
+		{
+			"dir": 0,
+			"type": "empty"
+		},
+		{
+			"dir": 0,
+			"type": "receiver"
+		},
+		{
+			"dir": 0,
+			"type": "empty"
+		},
+		{
+			"dir": 0,
+			"type": "empty"
+		},
+		{
+			"dir": 0,
+			"type": "empty"
+		},
+		{
+			"dir": 0,
+			"type": "mirror"
+		},
+		{
+			"dir": 0,
+			"type": "receiver"
+		}
+	],
+	"chapter": 5,
+	"height": 5,
+	"id": "chapter_05_level_04",
+	"number": 44,
+	"panels": [
+		{
+			"axis": "v",
+			"folded": true,
+			"h": 1,
+			"id": "s4",
+			"w": 2,
+			"x": 2,
+			"y": 4
+		},
+		{
+			"axis": "v",
+			"folded": true,
+			"h": 1,
+			"id": "s7",
+			"w": 1,
+			"x": 4,
+			"y": 1
+		},
+		{
+			"axis": "v",
+			"folded": true,
+			"h": 1,
+			"id": "s2",
+			"w": 1,
+			"x": 2,
+			"y": 1
+		}
+	],
+	"par": 3,
+	"tutorial": "tutorial_4",
+	"width": 5
+}

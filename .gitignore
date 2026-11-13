@@ -1,0 +1,6 @@
+.godot/
+build/*
+!build/.gitkeep
+*.tmp
+*.log
+.tools/
