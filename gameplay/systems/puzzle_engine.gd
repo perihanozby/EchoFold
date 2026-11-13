@@ -33,8 +33,9 @@ static func validate(board: Dictionary) -> Array[String]:
 		if c.has("required_dir") and (not c.required_dir is int or c.required_dir < 0 or c.required_dir > 3):
 			errors.append("Invalid receiver direction")
 		if c.has("channel") and not c.channel is String: errors.append("Invalid channel")
+		if c.has("mandatory") and not c.mandatory is bool: errors.append("Invalid mandatory flag")
 		emitters += int(c.type == "emitter")
-		receivers += int(c.type == "receiver")
+		receivers += int(c.type == "receiver" and c.get("mandatory", true))
 	if emitters == 0 or receivers == 0:
 		errors.append("Emitter and receiver required")
 	var occupied = {}
@@ -86,10 +87,10 @@ static func fold(board: Dictionary, panel_id: String) -> Dictionary:
 	return result
 
 static func canonical(board: Dictionary) -> String:
-	var parts = PackedStringArray()
+	var parts: Array = []
 	for c in board.cells:
-		parts.append("%s:%s:%s:%s:%s" % [c.type, c.dir, c.get("channel", "a"), c.get("required_dir", -1), c.get("mandatory", true)])
-	return "|".join(parts)
+		parts.append([c.type, c.dir, c.get("channel", null), c.get("required_dir", -1), c.get("mandatory", true)])
+	return JSON.stringify(parts)
 
 static func simulate(board: Dictionary) -> Dictionary:
 	var queue: Array = []
@@ -119,6 +120,7 @@ static func simulate(board: Dictionary) -> Dictionary:
 		var nx: int = x + DIRS[d].x
 		var ny: int = y + DIRS[d].y
 		if nx < 0 or ny < 0 or nx >= board.width or ny >= board.height:
+			segments.append([Vector2(x,y), Vector2(x,y) + Vector2(DIRS[d]) * 0.5, channel])
 			continue
 		segments.append([Vector2(x, y), Vector2(nx, ny), channel])
 		var c = cell(board, nx, ny)

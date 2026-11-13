@@ -2,6 +2,8 @@ param(
     [string]$GodotSource = 'C:\Users\perih\Downloads\Godot_v4.7.2-stable_win64.exe',
     [string]$AndroidSdk = 'C:\Android\Sdk',
     [string]$JavaSdk = 'C:\Program Files\Eclipse Adoptium\jdk-17.0.21.9-hotspot',
+    [string]$Preset = 'Android Debug',
+    [string]$Output = 'build/echofold-debug.apk',
     [switch]$SkipTests
 )
 $ErrorActionPreference = 'Stop'
@@ -33,11 +35,12 @@ try {
         & (Join-Path $JavaSdk 'bin\keytool.exe') -genkeypair -keystore build/echofold-debug.keystore -storepass android -alias androiddebugkey -keypass android -dname 'CN=ECHOFOLD Debug,O=ECHOFOLD,C=TR' -keyalg RSA -keysize 2048 -validity 10000
         if ($LASTEXITCODE -ne 0) { throw 'Debug keystore generation failed.' }
     }
-    & $godot --headless --path $workspace --export-debug 'Android Debug' build/echofold-debug.apk
+    & $godot --headless --path $workspace --export-debug $Preset $Output
     if ($LASTEXITCODE -ne 0) { throw 'Android export failed.' }
-    & (Join-Path $JavaSdk 'bin\java.exe') -jar (Join-Path $AndroidSdk 'build-tools\35.0.0\lib\apksigner.jar') verify --verbose --print-certs build/echofold-debug.apk
+    & (Join-Path $JavaSdk 'bin\java.exe') -jar (Join-Path $AndroidSdk 'build-tools\35.0.0\lib\apksigner.jar') verify --verbose --print-certs $Output
     if ($LASTEXITCODE -ne 0) { throw 'APK signature verification failed.' }
-    Get-FileHash -LiteralPath 'build\echofold-debug.apk' -Algorithm SHA256
+    Get-FileHash -LiteralPath $Output -Algorithm SHA256
 } finally {
     Pop-Location
 }
+exit 0

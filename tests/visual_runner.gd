@@ -6,6 +6,7 @@ func _initialize() -> void:
 	call_deferred("run")
 
 func capture(name_value: String) -> void:
+	await create_timer(0.7).timeout
 	await process_frame
 	await process_frame
 	await RenderingServer.frame_post_draw

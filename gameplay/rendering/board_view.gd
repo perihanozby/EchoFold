@@ -58,7 +58,9 @@ func _draw() -> void:
 			rect.position.y += rect.size.y * (1 - shrink) / 2
 			rect.size.y *= maxf(0.04, shrink)
 		var border = Color("527083").lerp(Color("72d6d0"), selected_strength) if p.id == selected else Color("527083")
+		draw_style_box(_style(Color(0.02,0.04,0.07,0.7), Color(0,0,0,0), 9), Rect2(rect.position + Vector2(0,4), rect.size))
 		draw_style_box(_style(Color("284356"), border, 9), rect)
+		draw_line(rect.position + Vector2(8,1), Vector2(rect.end.x - 8,rect.position.y + 1), Color(0.78,0.92,0.96,0.15),1,true)
 		if p.id == selected:
 			var start = Vector2(rect.get_center().x, rect.position.y) if p.axis == "v" else Vector2(rect.position.x, rect.get_center().y)
 			var end = Vector2(start.x, rect.end.y) if p.axis == "v" else Vector2(rect.end.x, start.y)
@@ -90,6 +92,10 @@ func _draw() -> void:
 					draw_colored_polygon(PackedVector2Array([center + d * r * 0.7, center - d * r * 0.4 + normal * r * 0.45, center - d * r * 0.4 - normal * r * 0.45]), Color("83e9dc"))
 				"receiver":
 					var active = light.active.has(y * board.width + x)
+					if active:
+						r *= 0.88 + beam_alpha * 0.12
+						if effects > 0:
+							draw_arc(center, r + 4 + (1 - beam_alpha) * 7, 0, TAU, 24, Color(0.65,0.94,0.83, effects * beam_alpha * 0.35),1,true)
 					var points = PackedVector2Array([center + Vector2(0, -r), center + Vector2(r * 0.8, 0), center + Vector2(0, r), center + Vector2(-r * 0.8, 0), center + Vector2(0, -r)])
 					draw_colored_polygon(points, Color("a6f0d4") if active else Color("344e61"))
 					draw_polyline(points, Color("a6f0d4") if active else Color("93a9ba"), 2, true)

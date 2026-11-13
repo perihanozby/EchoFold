@@ -9,3 +9,4 @@ try {
     & $Godot --headless --path $workspace --script tests/integration_runner.gd
     if ($LASTEXITCODE -ne 0) { throw 'Integration tests failed.' }
 } finally { Pop-Location }
+exit 0

@@ -103,23 +103,32 @@ static func make(index: int) -> Dictionary:
 	b.tutorial = "tutorial_%d" % chapter
 	return b
 
-static func load_level(index: int) -> Dictionary:
+static func load_level(index: int, allow_fallback: bool = true) -> Dictionary:
 	var path = "res://levels/chapter_%02d/level_%02d.json" % [index / 10 + 1, index % 10 + 1]
-	if not FileAccess.file_exists(path): return make(index)
+	if not FileAccess.file_exists(path): return make(index) if allow_fallback else {}
 	var b = JSON.parse_string(FileAccess.get_file_as_string(path))
-	if not b is Dictionary or not b.has_all(["cells", "panels"]): return make(index)
-	if not b.cells is Array or not b.panels is Array: return make(index)
-	for key in ["width", "height", "chapter", "number", "par"]: b[key] = int(b.get(key, 0))
+	if not b is Dictionary or not b.has_all(["cells", "panels", "id", "chapter", "number", "par", "width", "height"]): return make(index) if allow_fallback else {}
+	if not b.cells is Array or not b.panels is Array: return make(index) if allow_fallback else {}
+	for key in ["width", "height", "chapter", "number", "par"]:
+		if not integral(b[key]): return make(index) if allow_fallback else {}
+		b[key] = int(b[key])
+	if b.id != "chapter_%02d_level_%02d" % [index / 10 + 1, index % 10 + 1] or b.chapter != index / 10 + 1 or b.number != index + 1 or b.par < 1:
+		return make(index) if allow_fallback else {}
 	for c in b.cells:
-		if not c is Dictionary or not c.get("dir") is float: return make(index)
+		if not c is Dictionary or not integral(c.get("dir")): return make(index) if allow_fallback else {}
 		c.dir = int(c.dir)
-		if c.has("required_dir"): c.required_dir = int(c.required_dir)
+		if c.has("required_dir"):
+			if not integral(c.required_dir): return make(index) if allow_fallback else {}
+			c.required_dir = int(c.required_dir)
 	for p in b.panels:
-		if not p is Dictionary: return make(index)
+		if not p is Dictionary: return make(index) if allow_fallback else {}
 		for key in ["x", "y", "w", "h"]:
-			if not p.get(key) is float: return make(index)
+			if not integral(p.get(key)): return make(index) if allow_fallback else {}
 			p[key] = int(p[key])
-	return b if Model.validate(b).is_empty() else make(index)
+	return b if Model.validate(b).is_empty() else (make(index) if allow_fallback else {})
+
+static func integral(value: Variant) -> bool:
+	return (value is int or value is float) and is_finite(float(value)) and float(value) == floor(float(value))
 
 static func add_final_signal(board: Dictionary) -> Dictionary:
 	# Choose a two-turn authored edge route that preserves all existing signals.

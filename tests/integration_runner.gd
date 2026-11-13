@@ -179,6 +179,13 @@ func run() -> void:
 	check(is_instance_valid(scene.modal), "reset confirmation")
 	scene.close_modal()
 	scene.session.reset()
+	scene.start_level(12)
+	scene.session.commit(scene.session.board.panels[0].id)
+	scene.persist_session()
+	scene.save.data.active.redo = [null, "not-a-panel"]
+	scene.start_level(12, false, true)
+	check(scene.session.moves == 1, "invalid redo entries preserve active path")
+	scene.start_level(0)
 	for resolution in [Vector2i(360,800), Vector2i(390,844), Vector2i(412,915), Vector2i(480,960), Vector2i(480,640), Vector2i(800,600)]:
 		root.content_scale_size = resolution
 		root.size = resolution

@@ -44,7 +44,10 @@ func _initialize() -> void:
 	var unique = {}
 	var generate = "--generate" in OS.get_cmdline_user_args()
 	for i in range(60):
-		var level = Levels.make(i) if generate else Levels.load_level(i)
+		var level = Levels.make(i) if generate else Levels.load_level(i, false)
+		if not level.has("cells"):
+			check(false, "invalid or missing release JSON %d" % i)
+			continue
 		var fingerprint = Model.canonical(level)
 		check(not unique.has(fingerprint), "unique arrangement " + level.id)
 		unique[fingerprint] = true

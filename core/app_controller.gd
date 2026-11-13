@@ -32,6 +32,7 @@ var settings_return = "home"
 var hint_panel = ""
 var solutions: Array = []
 var save_path_override = ""
+var tutorial_stage = -1
 
 func _ready() -> void:
 	get_tree().auto_accept_quit = false
@@ -133,6 +134,12 @@ func button(key: String, action: Callable, parent: Node = null, primary: bool = 
 		node.add_theme_stylebox_override("normal", Tokens.box(Color("284356"), Tokens.ACCENT))
 		node.add_theme_color_override("font_color", Tokens.ACCENT)
 	node.pressed.connect(func(): audio.play("tap"); action.call())
+	node.button_down.connect(func():
+		if not save.data.settings.reduced_motion:
+			node.pivot_offset = node.size / 2
+			create_tween().tween_property(node, "scale", Vector2.ONE * 0.975, 0.08))
+	node.button_up.connect(func():
+		if is_instance_valid(node): create_tween().tween_property(node, "scale", Vector2.ONE, 0.08))
 	(parent if parent != null else content).add_child(node)
 	return node
 
@@ -236,14 +243,16 @@ func start_level(level_index: int, daily: bool = false, restore: bool = false) -
 		var active = save.data.active
 		if active.get("id", "") == level.id and active.get("path") is Array:
 			# Replay only legal actions; never deserialize an authoritative board.
-			for panel in active.path.slice(0, 2048):
+			for panel in active.path:
 				if panel is String: session.commit(panel)
 			if active.get("redo") is Array:
-				for panel in active.redo.slice(0, 2048):
-					if panel is String: session.commit(panel)
-				for panel in active.redo.slice(0, 2048): session.undo()
+				var restored_redo = 0
+				for panel in active.redo:
+					if panel is String and session.commit(panel): restored_redo += 1
+				for redo_index in range(restored_redo): session.undo()
 	awarded = false
 	hint_panel = ""
+	tutorial_stage = 0 if daily_id.is_empty() and index % 10 == 0 else -1
 	if daily_id.is_empty(): save.data.current = index
 	show_game()
 
@@ -262,10 +271,15 @@ func show_game() -> void:
 	board_view.effects = save.data.settings.effects
 	content.add_child(board_view)
 	board_view.set_board(session.board)
-	board_view.panel_selected.connect(func(_id): audio.play("select"); fold_button.disabled = false)
+	board_view.panel_selected.connect(func(_id):
+		audio.play("select")
+		fold_button.disabled = false
+		if tutorial_stage == 0:
+			tutorial_stage = 1
+			instruction.text = t("fold"))
 	board_view.fold_requested.connect(request_fold)
 	board_view.invalid_fold.connect(func(): audio.play("invalid"))
-	instruction = label(t("select"), 14)
+	instruction = label(t("tutorial_" + str(index / 10)) + "\n" + t("select") if tutorial_stage == 0 else t("select"), 14)
 	instruction.custom_minimum_size.y = 40
 	fold_button = button("fold", func(): request_fold(board_view.selected), null, true)
 	fold_button.disabled = true
@@ -299,6 +313,9 @@ func request_fold(id: String) -> void:
 		refresh_board())
 	if not is_instance_valid(board_view): return
 	fold_button.disabled = false
+	if tutorial_stage == 1:
+		tutorial_stage = 2
+		instruction.text = t("tutorial_" + str(index / 10))
 	persist_session()
 	if Model.simulate(session.board).solved: complete_level()
 
@@ -389,6 +406,8 @@ func complete_level() -> void:
 		create_tween().tween_property(stars, "modulate:a", 1, 0.6)
 	stars.add_theme_color_override("font_color", Tokens.WARM)
 	label(t("moves") + "  " + n(session.moves), 18, stack)
+	if daily_id.is_empty() and index % 10 == 9 and index < 59:
+		label(t("unlocked") + " · " + t("chapter_" + str(index / 10 + 2)), 19, stack)
 	var records: Dictionary = save.data.completed if daily_id.is_empty() else save.data.daily
 	label(t("best") + "  " + n(records[str(index) if daily_id.is_empty() else daily_id].best), 16, stack)
 	if daily_id.is_empty() and index < 59:
